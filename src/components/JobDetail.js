@@ -31,13 +31,11 @@ query ($jobSlug:String!,$companySlug:String!){
 export default function JobDetail(props) {
   let { jobSlug } = props.match.params;
   let { companySlug } = props.match.params;
-  console.log(companySlug, jobSlug);
   const { loading, error, data } = useQuery(JOB_QUERY, {
     variables: { jobSlug: jobSlug, companySlug: companySlug },
   });
   if (loading) return <p>Loading...</p>
   const { job } = data;
-  console.log(data);
   return (
     <div className="row justify-content-center p-3">
       <div className="col-md-7">
